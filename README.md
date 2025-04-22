@@ -75,3 +75,10 @@ L’application sera hébergée sur Hostinger, selon les besoins de performance 
 ### Mobilité / Responsiveness :
 
 L'application devra être responsive, c'est-à-dire accessible et utilisable de manière optimale sur PC et mobile (smartphones et tablettes).
+
+# Tableau des utilisateurs et rôles
+
+| Type d'utilisateur     | Actions autorisées                                                                                      | Lien avec les futures routes protégées / autorisations                                              |
+|------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| Utilisateur enregistré | Créer, modifier et supprimer des articles, liker et commenter des articles, gérer son profil.            | Routes protégées par middleware `auth` et `can` (via policies) pour accès aux articles personnels et modifications de profil. |
+| Administrateur         | Gérer les utilisateurs (ajouter, supprimer, modifier), modérer le contenu, consulter des statistiques d'utilisation. | Routes protégées par middleware `auth` et `can` pour les actions de gestion (ex. `admin` middleware). |
