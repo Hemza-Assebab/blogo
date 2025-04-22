@@ -1,6 +1,10 @@
 # 📌 Navigation
-- [Cahier des charges pour Blogo]()
-  - [Presentation du projet]()
+- [Cahier des charges pour Blogo](#cahier-des-charges-pour-blogo)
+  - [Presentation du projet](#presentation-du-projet)
+  - [Problèmes à résoudre / besoins exprimés](#problèmes-à-résoudre--besoins-exprimés)
+  - [Utilisateurs cibles](#utilisateurs-cibles)
+  - [Fonctionnalités attendues](#fonctionnalités-attendues)
+  - [Contraintes techniques](#contraintes-techniques)
 
 # Cahier des charges pour Blogo
 ## Presentation du projet
