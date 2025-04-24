@@ -6,6 +6,11 @@
   - [Fonctionnalités attendues](#fonctionnalités-attendues)
   - [Contraintes techniques](#contraintes-techniques)
 - [Tableau des utilisateurs et rôles](#tableau-des-utilisateurs-et-rôles)
+- [Liste des fonctionnalités attendues](#liste-des-fonctionnalités-attendues)
+  - [Présentation générale](#présentation-générale)
+  - [Liste des fonctionnalités par type d’utilisateur](#liste-des-fonctionnalités-par-type-dutilisateur)
+  - [User Stories](#user-stories)
+  - [Priorisation des fonctionnalités](#priorisation-des-fonctionnalités)
 
 # Cahier des charges pour Blogo
 ## Presentation du projet
