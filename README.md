@@ -57,3 +57,52 @@ L'application devra être responsive, c'est-à-dire accessible et utilisable de 
 |------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | Utilisateur enregistré | Créer, modifier et supprimer des articles, liker et commenter des articles, gérer son profil.            | Routes protégées par middleware `auth` et `can` (via policies) pour accès aux articles personnels et modifications de profil. |
 | Administrateur         | Gérer les utilisateurs (ajouter, supprimer, modifier), modérer le contenu, consulter des statistiques d'utilisation. | Routes protégées par middleware `auth` et `can` pour les actions de gestion (ex. `admin` middleware). |
+# Liste des fonctionnalités attendues
+## Présentation générale
+L’application Blogo a pour but de permettre aux utilisateurs de créer, publier et gérer des articles de blog au sein d’une communauté interactive.
+
+Elle s’adresse principalement à deux types d’utilisateurs : les utilisateurs enregistrés qui créent du contenu, et les administrateurs qui supervisent la plateforme.
+## Liste des fonctionnalités par type d’utilisateur
+### Utilisateur enregistré:
+- Créer un compte et se connecter
+- Rédiger un article
+- Modifier ou supprimer ses articles
+- Commenter des articles
+- Liker des publications
+- Gérer son profil (photo, infos personnelles)
+- Consulter l’historique de ses publications et interactions
+### Administrateur:
+- Gérer les utilisateurs (ajouter, modifier, supprimer)
+- Attribuer ou modifier des rôles
+- Modérer les articles et les commentaires
+- Gérer les paramètres de la plateforme
+- Consulter les statistiques (nombre d’articles, utilisateurs actifs…)
+## User Stories
+- En tant qu’utilisateur, je veux rédiger un article, afin de partager mes idées avec la communauté.
+- En tant qu’utilisateur, je veux commenter les articles des autres, afin de échanger des opinions ou poser des questions.
+- En tant qu’utilisateur, je veux liker des articles, afin de exprimer mon appréciation pour certains contenus.
+- En tant qu’administrateur, je veux supprimer un article inapproprié, afin de garantir le respect des règles de la plateforme.
+- En tant qu’administrateur, je veux consulter les statistiques d’utilisation, afin de suivre l’activité et améliorer la plateforme.
+- En tant qu’administrateur, je veux modifier les rôles des utilisateurs, afin de attribuer les bons droits à chaque membre.
+## Priorisation des fonctionnalités
+### Essentielles
+- Créer un compte et se connecter
+- Rédiger, modifier et supprimer un article
+- Lire les articles publiés
+- Liker un article
+- Commenter un article
+- Gérer son profil (infos de base, mot de passe)
+- Gérer les utilisateurs (pour les administrateurs)
+- Supprimer/modérer les articles ou commentaires (admin)
+### Secondaires
+- Ajouter une photo de profil
+- Consulter l’historique de ses articles et interactions
+- Modifier les rôles des utilisateurs (admin)
+- Voir les profils d’autres membres
+- Recevoir des notifications (nouveau commentaire, like)
+### Bonus
+- Statistiques d’utilisation (admin)
+- Système de tags ou catégories pour les articles
+- Recherche avancée (par auteur, mot-clé, date)
+- Mode sombre / clair
+- Réseaux sociaux intégrés pour partage d’articles
