@@ -15,6 +15,7 @@
   - [Liste des tâches à réaliser](#liste-des-tâches-à-réaliser)
   - [Outils nécessaires au développement](#outils-nécessaires-au-développement)
   - [Outils nécessaires à l’exploitation](#outils-nécessaires-à-lexploitation)
+- [Diagrammes UML](#diagrammes-uml)
 
 # Cahier des charges pour Blogo
 ## Presentation du projet
