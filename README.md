@@ -166,5 +166,5 @@ Elle s’adresse principalement à deux types d’utilisateurs : les utilisateur
   - SSL/TLS pour crypter les communications (Fourni par Hostinger)
   - Pare-feu pour la protection du serveur (Fourni par Hostinger)
 # Diagrammes UML
-## Use Case Diagram
+## Diagramme de cas d'utilisation
 ![Use Case Diagram](Documents/Diagrams/use-case-diagram.jpg)
