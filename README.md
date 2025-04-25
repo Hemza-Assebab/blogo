@@ -164,3 +164,6 @@ Elle s’adresse principalement à deux types d’utilisateurs : les utilisateur
   - Sauvegardes automatiques quotidiennes de la base de données via Hostinger
   - SSL/TLS pour crypter les communications (Fourni par Hostinger)
   - Pare-feu pour la protection du serveur (Fourni par Hostinger)
+# Diagrammes UML
+## Use Case Diagram
+![Use Case Diagram](Documents/Diagrams/use-case-diagram.jpg)
