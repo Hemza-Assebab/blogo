@@ -11,6 +11,10 @@
   - [Liste des fonctionnalités par type d’utilisateur](#liste-des-fonctionnalités-par-type-dutilisateur)
   - [User Stories](#user-stories)
   - [Priorisation des fonctionnalités](#priorisation-des-fonctionnalités)
+- [Planification du projet](#planification-du-projet)
+  - [Liste des tâches à réaliser](#liste-des-tâches-à-réaliser)
+  - [Outils nécessaires au développement](#outils-nécessaires-au-développement)
+  - [Outils nécessaires à l’exploitation](#outils-nécessaires-à-lexploitation)
 
 # Cahier des charges pour Blogo
 ## Presentation du projet
@@ -111,3 +115,52 @@ Elle s’adresse principalement à deux types d’utilisateurs : les utilisateur
 - Recherche avancée (par auteur, mot-clé, date)
 - Mode sombre / clair
 - Réseaux sociaux intégrés pour partage d’articles
+# Planification du projet
+## Liste des tâches à réaliser
+### Conception (4 jours)
+- Préparation des diagrammes UML
+- Maquettes des interfaces principales
+- Préparation de l’architecture du projet
+### Développement Back-End (6 jours)
+- Configuration du projet Laravel + base de données
+- Authentification (register/login/middleware)
+- Modèles, contrôleurs, routes API
+- Permissions via policies
+### Développement Front-End (6 jours)
+- Initialisation du projet React
+- Création des pages principales
+- Appels API + gestion des rôles
+### Tests (2 jours)
+- Tests fonctionnels
+- Tests de sécurité et validation
+### Déploiement (2 jour)
+- Préparation + déploiement sur Hostinger
+- Tests finaux post-déploiement
+## Outils nécessaires au développement
+### Langages & Frameworks
+- Backend: PHP (Framework Laravel)
+- Frontend: JavaScript (Framework React)
+- Base de données: MySQL
+### Environnement de développement
+- IDE: Visual Studio Code
+- Serveur local: XAMPP
+- Navigateurs ciblés pour les tests: Chrome, Firefox, Edge
+### Versioning & collaboration
+- Contrôle de version: Git
+- Plateforme de versioning: GitHub
+### Conception & Design
+- Diagrammes UML: StarUML
+- Maquettes & UI: Figma
+- Bibliothèque de composants UI : Tailwind CSS / Bootstrap
+- Icônes: FontAwesome
+### Tests & déploiement
+- Outils de test: PHPUnit (Laravel), React Testing Library
+- Plateforme d’hébergement: Hostinger
+- Déploiement: Configuration manuelle sur Hostinger
+## Outils nécessaires à l’exploitation
+- Plateforme d’hébergement: Hostinger
+- Outils de logs & surveillance: Laravel Log
+- Outils de sauvegarde & sécurité:
+  - Sauvegardes automatiques quotidiennes de la base de données via Hostinger
+  - SSL/TLS pour crypter les communications (Fourni par Hostinger)
+  - Pare-feu pour la protection du serveur (Fourni par Hostinger)
