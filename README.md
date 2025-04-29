@@ -15,6 +15,7 @@
   - [Liste des tâches à réaliser](#liste-des-tâches-à-réaliser)
   - [Outils nécessaires au développement](#outils-nécessaires-au-développement)
   - [Outils nécessaires à l’exploitation](#outils-nécessaires-à-lexploitation)
+- [Diagrammes UML](#diagrammes-uml)
 
 # Cahier des charges pour Blogo
 ## Presentation du projet
@@ -164,3 +165,6 @@ Elle s’adresse principalement à deux types d’utilisateurs : les utilisateur
   - Sauvegardes automatiques quotidiennes de la base de données via Hostinger
   - SSL/TLS pour crypter les communications (Fourni par Hostinger)
   - Pare-feu pour la protection du serveur (Fourni par Hostinger)
+# Diagrammes UML
+## Diagramme de cas d'utilisation
+![Use Case Diagram](Documents/Diagrams/use-case-diagram.jpg)
