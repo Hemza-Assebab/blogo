@@ -16,6 +16,7 @@
   - [Outils nécessaires au développement](#outils-nécessaires-au-développement)
   - [Outils nécessaires à l’exploitation](#outils-nécessaires-à-lexploitation)
 - [Diagrammes UML](#diagrammes-uml)
+- [Conception de la base de données](#diagrammes-uml)
 
 # Cahier des charges pour Blogo
 ## Presentation du projet
@@ -168,3 +169,5 @@ Elle s’adresse principalement à deux types d’utilisateurs : les utilisateur
 # Diagrammes UML
 ## Diagramme de cas d'utilisation
 ![Use Case Diagram](Documents/Diagrams/use-case-diagram.jpg)
+## Diagramme de classe
+![Conception de la base de données](Documents/Diagrams/class-diagram.jpg)
