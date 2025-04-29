@@ -16,7 +16,6 @@
   - [Outils nécessaires au développement](#outils-nécessaires-au-développement)
   - [Outils nécessaires à l’exploitation](#outils-nécessaires-à-lexploitation)
 - [Diagrammes UML](#diagrammes-uml)
-- [Conception de la base de données](#diagrammes-uml)
 
 # Cahier des charges pour Blogo
 ## Presentation du projet
