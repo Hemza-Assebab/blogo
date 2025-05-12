@@ -16,6 +16,7 @@
   - [Outils nécessaires au développement](#outils-nécessaires-au-développement)
   - [Outils nécessaires à l’exploitation](#outils-nécessaires-à-lexploitation)
 - [Diagrammes UML](#diagrammes-uml)
+- [Wireframes de projet](#wirframes-de-projet)
 
 # Cahier des charges pour Blogo
 ## Presentation du projet
@@ -170,3 +171,5 @@ Elle s’adresse principalement à deux types d’utilisateurs : les utilisateur
 ![Use Case Diagram](Documents/Diagrams/use-case-diagram.jpg)
 ## Diagramme de classe
 ![Conception de la base de données](Documents/Diagrams/class-diagram.jpg)
+# Wireframes de projet
+[Visiter le lien](#https://whimsical.com/blogo-98RvG3vBcZ9GU2MfgXpTdm)
