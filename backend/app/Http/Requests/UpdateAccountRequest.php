@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class RegisterRequest extends FormRequest
+class UpdateAccountRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,13 +26,13 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required|string|min:2|max:25',
-            'last_name'  => 'required|string|min:2|max:25',
-            'username'   => 'required|string|min:5|max:25|unique:users,username',
-            'email'      => 'required|email|min:7|max:255|unique:users,email',
-            'password'   => 'required|string|min:8|max:20',
-            'country'    => 'required|string|min:4|max:100',
-            'birth_date' => 'required|date|before:today',
+            'first_name' => 'string|min:2|max:25',
+            'last_name'  => 'string|min:2|max:25',
+            'username'   => 'string|min:5|max:25|unique:users,username,' . auth()->id(),
+            'email'      => 'email|min:7||max:255|unique:users,email,' . auth()->id(),
+            'country'    => 'string|min:4|max:100',
+            'birth_date' => 'date|before:today',
+            "bio"        => "string"
         ];
     }
 
