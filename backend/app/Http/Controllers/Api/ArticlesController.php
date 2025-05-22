@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Articles\StoreArticleRequest;
+use App\Http\Requests\Articles\UpdateArticleRequest;
 
 class ArticlesController extends Controller
 {
@@ -16,7 +18,7 @@ class ArticlesController extends Controller
         ], 200);
     }
 
-    public function store (Request $request)
+    public function store (StoreArticleRequest $request)
     {
         $article = Article::create([
             "user_id" => $request->user()->id,
@@ -43,7 +45,7 @@ class ArticlesController extends Controller
         ], 200);
     }
 
-    public function update ($id, Request $request)
+    public function update ($id, UpdateArticleRequest $request)
     {
         $article = Article::find($id);
 
