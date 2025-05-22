@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Articles;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class LoginRequest extends FormRequest
+class StoreArticleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +26,9 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            "email"    => "required|email|required_without:username",
-            "password" => "required|string",
+            "title"   => "required|string|min:3|max:90",
+            "content" => "required|string|min:1",
+            "poster"  => "nullable|image|mimes:jpeg,png,jpg",
         ];
     }
 
