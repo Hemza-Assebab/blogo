@@ -2,9 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\AccountController;
-use App\Http\Controllers\Api\ArticlesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,27 +14,6 @@ use App\Http\Controllers\Api\ArticlesController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
-});
-
-Route::post("/register", [AuthController::class, "register"]);
-Route::post("/login", [AuthController::class, "login"]);
-Route::post("/logout", [AuthController::class, "logout"])->middleware("auth:sanctum");
-Route::get("/auth-user", [AuthController::class, "getData"])->middleware("auth:sanctum");
-
-Route::middleware("auth:sanctum")->group(function () {
-    Route::prefix("account")->group(function () {
-        Route::put("/update", [AccountController::class, "update"]);
-        Route::delete("/delete", [AccountController::class, "delete"]);
-        Route::put("/change-password", [AccountController::class, "change_password"]);
-    });
-
-    Route::prefix("articles")->group(function () {
-        Route::get("/", [ArticlesController::class, "index"]);
-        Route::post("/", [ArticlesController::class, "store"]);
-        Route::get("/{id}", [ArticlesController::class, "show"]);
-        Route::put("/{id}", [ArticlesController::class, "update"]);
-        Route::delete("/{id}", [ArticlesController::class, "destroy"]);
-    });
 });
