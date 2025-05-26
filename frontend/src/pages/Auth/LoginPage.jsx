@@ -1,13 +1,16 @@
 import { useForm } from "react-hook-form"
-import { axiosClient } from "../../api/axios";
 import { useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import LoadingButton from "../../components/LoadingButton";
+import { useUserContext } from "../../context/UserContext";
 
 function LoginPage () {
-    const navigate = useNavigate();
     const [generalErrors, setGeneralErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
+
+    const { login, authenticated, setAuthenticated } = useUserContext();
+    const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
@@ -15,27 +18,21 @@ function LoginPage () {
     } = useForm()
 
     useEffect(() => {
-        axiosClient.get("/user")
-         .then(() => {
-            navigate("/");
-         })
-         .catch((e) => {
-            console.log("Please log in");
-         })
-    }, []);
-        
+        if (authenticated) navigate("/");
+    }, [authenticated]);
+
     const onLogin = async (values) => {
         setIsLoading(true);
         setGeneralErrors({});
+
         try {
-            await axiosClient.get("/sanctum/csrf-cookie", {
-                baseURL: import.meta.env.VITE_BACKEND_URL
-            });
-            const response = await axiosClient.post("login", values);            
-            if (response.status === 200) navigate("/");
+            const response = await login(values);
+            if (response.status === 200) {
+                setAuthenticated(true);
+                if (authenticated) navigate("/");
+            };
         } catch ({response}) {
             setGeneralErrors({...generalErrors, login: response.data.message});
-        } finally {
             setIsLoading(false);
         }
     }
