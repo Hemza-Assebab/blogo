@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form"
-import { axiosClient } from "../api/axios";
+import { axiosClient } from "../../api/axios";
 import { useNavigate } from "react-router-dom"
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import LoadingButton from "../../components/LoadingButton";
 
 function LoginPage () {
     const navigate = useNavigate();
@@ -12,14 +13,26 @@ function LoginPage () {
         handleSubmit,
         formState: {errors}
     } = useForm()
+
+    useEffect(() => {
+        axiosClient.get("/user")
+         .then(() => {
+            navigate("/");
+         })
+         .catch((e) => {
+            console.log("Please log in");
+         })
+    }, []);
         
     const onLogin = async (values) => {
         setIsLoading(true);
         setGeneralErrors({});
         try {
-            await axiosClient.get("/sanctum/csrf-cookie");
-            const data = await axiosClient.post("/login", values);
-            if (data.status === 204) navigate("/");
+            await axiosClient.get("/sanctum/csrf-cookie", {
+                baseURL: import.meta.env.VITE_BACKEND_URL
+            });
+            const response = await axiosClient.post("login", values);            
+            if (response.status === 200) navigate("/");
         } catch ({response}) {
             setGeneralErrors({...generalErrors, login: response.data.message});
         } finally {
@@ -68,10 +81,7 @@ function LoginPage () {
                     {
                             isLoading
                         ?
-                            <button className="btn btn-success w-100 mt-4" type="button" disabled>
-                                <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
-                                <span role="status"> Loading...</span>
-                            </button>
+                            <LoadingButton />
                         :
                             <input type="submit" value={"Log In"} className="btn btn-success w-100 mt-4" />
                     }
