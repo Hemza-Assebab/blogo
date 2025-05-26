@@ -1,13 +1,16 @@
 import { useForm } from "react-hook-form"
-import { axiosClient } from "../../api/axios";
-import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
 import LoadingButton from "../../components/LoadingButton";
+import { useUserContext } from "../../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 function RegisterPage () {
-    const navigate = useNavigate();
     const [generalErrors, setGeneralErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
+
+    const { signup, authenticated, setAuthenticated } = useUserContext();
+    const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
@@ -15,37 +18,31 @@ function RegisterPage () {
         formState: {errors}
     } = useForm()
 
+    const handleCloseAlert = () => setGeneralErrors({...generalErrors, register: null});
+    const password = watch("password");
+
     useEffect(() => {
-        axiosClient.get("/user")
-         .then(() => {
-            navigate("/");
-         })
-         .catch((e) => {
-            console.log("Please log in");
-         })
-    }, []);
-        
-    const onLogin = async (values) => {
+        if (authenticated) navigate("/");
+    }, [authenticated]);
+
+    const onRegister = async (values) => {
         setIsLoading(true);
         setGeneralErrors({});
 
         try {
-            await axiosClient.get("/sanctum/csrf-cookie", {
-                baseURL: import.meta.env.VITE_BACKEND_URL
-            });
-            const response = await axiosClient.post("register", values);            
-            if (response.status === 201) navigate("/");
+            const response = await signup(values);
+            console.log(1);
+            
+            if (response.status === 201) {
+                setAuthenticated(true);
+                if (authenticated) navigate("/");
+            };
         } catch ({response}) {
-            // TOFIX: Display Validation Registering Errors
             setGeneralErrors({...generalErrors, register: response.data.message});
-            console.log(response.data.errors);
-        } finally {
             setIsLoading(false);
         }
     }
 
-    const handleCloseAlert = () => setGeneralErrors({...generalErrors, register: null});
-    const password = watch("password");
     return (
         <div className="container my-5">
             <h1 className="text-center">Create an account</h1>
@@ -59,7 +56,7 @@ function RegisterPage () {
                         <button type="button" className="btn-close" onClick={handleCloseAlert} aria-label="Close"></button>
                     </div>
                 }
-                <form onSubmit={handleSubmit(onLogin)}>
+                <form onSubmit={handleSubmit(onRegister)}>
                     <div className="row">
                         <div className="col-md">
                             <div className="form-group mb-4">

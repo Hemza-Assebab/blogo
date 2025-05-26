@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { axiosClient } from "../api/axios";
+import { data, useNavigate } from "react-router-dom";
 import PageLoader from "../components/PageLoader";
+import { useUserContext } from "../context/UserContext";
+import { AuthService } from "../services/Auth";
 
 function HomePage () {
     const navigate = useNavigate();
-    const [user, setUser] = useState({});
     const [loading, setLoading] = useState(true);
+    const { authenticated, setAuthenticated, user, setUser, logout } = useUserContext();
 
     useEffect(() => {
-        axiosClient.get("/user")
-         .then(({data}) => {
-            setUser(data);
-            setLoading(false)
-         })
-         .catch(e => {
+        if (!authenticated) {
             navigate("/login");
-         })
-    }, []);
+            return;
+        }
+
+        AuthService.getUser().then(({data}) => {
+            setUser(data);
+            setLoading(false);
+        })
+        .catch(() => {
+            logout();
+        });
+    }, [authenticated]);
 
     return (
         <div className="container">
@@ -26,7 +31,7 @@ function HomePage () {
                 ?
                 <PageLoader />
                 :
-                <h1>Hello {user.username}</h1>
+                <h1>Hello {user.first_name}</h1>
             }
         </div>
     );
