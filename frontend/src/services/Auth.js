@@ -14,6 +14,10 @@ export const AuthService = {
         return await axiosClient.post("/register", values);            
     },
 
+    logout: async () => {
+        return await axiosClient.post("/logout");
+    },
+
     getUser: async () => {
         return await axiosClient.get("/user");
     }
