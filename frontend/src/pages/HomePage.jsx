@@ -6,7 +6,7 @@ import { AuthService } from "../services/Auth";
 
 function HomePage () {
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     const { authenticated, setAuthenticated, user, setUser, logout } = useUserContext();
 
     useEffect(() => {
@@ -17,7 +17,7 @@ function HomePage () {
 
         AuthService.getUser().then(({data}) => {
             setUser(data);
-            setLoading(false);
+            setIsLoading(false);
         })
         .catch(() => {
             logout();
@@ -25,14 +25,12 @@ function HomePage () {
     }, [authenticated]);
 
     return (
-        <div className="container">
-            {
-                loading
-                ?
-                <PageLoader />
-                :
-                <h1>Hello {user.first_name}</h1>
-            }
+        isLoading
+            ?
+        <PageLoader />
+        :
+        <div className="container mt-5" style={{maxWidth: "800px"}}>
+            <h1>Hello {user.first_name}</h1>
         </div>
     );
 }

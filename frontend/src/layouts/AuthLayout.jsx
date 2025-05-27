@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import AuthNavbar from "../components/AuthNavbar";
 
 export default function AuthLayout () {
     return (
         <>
             <header>
-                <Navbar />
+                <AuthNavbar />
             </header>
             <main>
                 <Outlet />

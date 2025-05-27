@@ -6,7 +6,6 @@ export const UserStateContext =  createContext({
     authenticated: false,
     setAuthenticated: () => {},
     setUser: () => {},
-    logout: () => {},
 });
 
 export default function UserContext({children}) {
@@ -28,9 +27,10 @@ export default function UserContext({children}) {
         return AuthService.signup(values);
     }
 
-    const logout = () => {
+    const logout = async () => {
         setUser({});
         setAuthenticated(false);
+        await AuthService.logout();
     };
 
     return <>
