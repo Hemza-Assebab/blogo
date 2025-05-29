@@ -1,11 +1,14 @@
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 import UserContext from "./context/UserContext";
+import ArticlesContext from "./context/ArticlesContext";
 
 function App () {
   return (
     <UserContext>
-      <RouterProvider router={router} />
+      <ArticlesContext>
+        <RouterProvider router={router} />
+      </ArticlesContext>
     </UserContext>
   );
 }

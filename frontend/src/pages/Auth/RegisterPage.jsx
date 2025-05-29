@@ -164,7 +164,7 @@ function RegisterPage () {
                     {
                             isLoading
                         ?
-                            <LoadingButton />
+                            <LoadingButton className="btn btn-success w-100 mt-4"/>
                         :
                             <input type="submit" value={"Create"} className="btn btn-success w-100 mt-4" />
                     }

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string("country");
             $table->date("birth_date");
             $table->text("bio")->nullable();
-            $table->string("avatar")->nullable();
+            $table->string("avatar")->default("no_avatar.png");
             $table->timestamps();
         });
     }

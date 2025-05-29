@@ -78,7 +78,7 @@ function LoginPage () {
                     {
                             isLoading
                         ?
-                            <LoadingButton />
+                            <LoadingButton className="btn btn-success w-100 mt-4"/>
                         :
                             <input type="submit" value={"Log In"} className="btn btn-success w-100 mt-4" />
                     }

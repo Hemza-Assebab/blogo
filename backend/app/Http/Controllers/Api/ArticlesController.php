@@ -14,7 +14,10 @@ class ArticlesController extends Controller
     {
         return response()->json([
             "message" => "Articles List",
-            "articles" => Article::orderBy("id", "desc")->get()
+            "articles" => Article::with(['user', 'likes.user', 'comments.user'])
+                            ->withCount(['likes', 'comments'])
+                            ->orderBy('id', 'desc')
+                            ->get()
         ], 200);
     }
 

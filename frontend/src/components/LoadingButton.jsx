@@ -1,8 +1,11 @@
-export default function LoadingButton () {
+export default function LoadingButton ({ 
+    className = "btn btn-success",
+    text = "Loading"
+ }) {
     return (
-        <button className="btn btn-success w-100 mt-4" type="button" disabled>
+        <button className={className} type="button" disabled>
             <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
-            <span role="status"> Loading...</span>
+            <span role="status"> {text}</span>
         </button>
     );
 }
