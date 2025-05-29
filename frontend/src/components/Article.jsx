@@ -1,5 +1,6 @@
 import ReadMore from "./ReadMore";
 import TimeAgo from "./TimeAgo";
+import ArticleLike from "./ArticleLike";
 
 export default function Article ({ article }) {
 
@@ -18,7 +19,7 @@ export default function Article ({ article }) {
                 <h2>{article.title}</h2>
                 <ReadMore text={article.content} />
                 <div className="d-flex justify-content-between">
-                    <button className="bg-transparent border-0 flex-fill me-2">{article.likes_count} <i className="fs-5 fa-regular fa-thumbs-up"></i></button>
+                    <ArticleLike article={article} />
                     <button className="bg-transparent border-0 flex-fill">{article.comments_count} <i className="fs-5 fa-regular fa-comment"></i></button>
                     <button className="bg-transparent border-0 flex-fill ms-2"><i className="fs-5 fa-solid fa-share"></i></button>
                 </div>

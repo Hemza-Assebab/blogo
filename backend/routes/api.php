@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\LikeController;
 use App\Http\Controllers\Api\AccountController;
 use App\Http\Controllers\Api\ArticlesController;
 
@@ -39,5 +40,10 @@ Route::middleware("auth:sanctum")->group(function () {
         Route::get("/{id}", [ArticlesController::class, "show"]);
         Route::put("/{id}", [ArticlesController::class, "update"]);
         Route::delete("/{id}", [ArticlesController::class, "destroy"]);
+    });
+
+    Route::prefix("/like/article/{id}")->group(function () {
+        Route::post("/", [LikeController::class, "store"]);
+        Route::delete("/", [LikeController::class, "destroy"]);
     });
 });
